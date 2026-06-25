@@ -1,0 +1,20 @@
+Manual CMD commands only. Codex has not run epoch training commands.
+
+Project activation:
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+CUDA allocator setting for large temporal graph runs:
+set PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+Memory-safe CUDA dry-run only:
+python src\train_temporal.py --model temporal_gcn_gru --artifact-dir data\processed\full\graph_artifacts --dry-run --hidden-channels 32 --num-layers 1 --device cuda --snapshot-mode current --temporal-grad-mode detach --detach-memory-each-step
+
+Recommended memory-safe CUDA training command:
+python src\train_temporal.py --model temporal_gcn_gru --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cuda --snapshot-mode current --temporal-grad-mode detach --detach-memory-each-step --save-name temporal_gcn_gru_full_100ep_memsafe
+
+Optional cumulative CUDA command, only if memory allows:
+python src\train_temporal.py --model temporal_gcn_gru --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cuda --snapshot-mode cumulative --temporal-grad-mode detach --detach-memory-each-step --save-name temporal_gcn_gru_full_100ep_cumulative_memsafe
+
+CPU fallback command:
+python src\train_temporal.py --model temporal_gcn_gru --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cpu --snapshot-mode current --temporal-grad-mode detach --detach-memory-each-step --save-name temporal_gcn_gru_full_100ep_cpu

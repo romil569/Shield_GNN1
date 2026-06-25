@@ -1,0 +1,10 @@
+﻿cff-version: 1.2.0
+message: "If you use SHIELD-GNN in your research, please cite this repository."
+title: "SHIELD-GNN: Secure Hierarchical Intelligent Edge-pruned Learning for Adversarially Robust Blockchain Fraud Detection"
+authors:
+  - family-names: "Parikh"
+    given-names: "Romil"
+version: "1.0.0"
+date-released: "2026-06-25"
+repository-code: "https://github.com/romil569/Shield_GNN1.git"
+license: "MIT"

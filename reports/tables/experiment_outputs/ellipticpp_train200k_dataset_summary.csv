@@ -1,0 +1,2 @@
+dataset_name,num_nodes,num_transaction_nodes,num_wallet_nodes,num_directed_edges,num_undirected_edges,num_features,num_timesteps,labeled_nodes,unknown_nodes,train_labeled_nodes,val_labeled_nodes,test_labeled_nodes,split_protocol,leakage_risk
+EllipticPlusPlus-Train200K,1026711,203769,822942,1548596,3005230,249,49,311918,714793,207014,8642,6687,chronological_transaction_split_with_strict_wallet_train,low

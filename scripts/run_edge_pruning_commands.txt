@@ -1,0 +1,13 @@
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+python scripts\07_verify_edge_pruning.py
+
+python src\run_edge_pruning_defense.py --input-type clean --mode hybrid --dry-run
+python src\run_edge_pruning_defense.py --input-type clean --mode hard --dry-run
+python src\run_edge_pruning_defense.py --input-type clean --mode soft --dry-run
+
+python src\run_edge_pruning_defense.py --input-type clean --mode hybrid --save-artifacts --output-name clean_hybrid_pruned
+
+python src\run_edge_pruning_defense.py --input-type attack --attack-dir data\processed\attack_artifacts\combined_latest --mode hybrid --dry-run
+python src\run_edge_pruning_defense.py --input-type attack --attack-dir data\processed\attack_artifacts\combined_latest --mode hybrid --save-artifacts --output-name combined_hybrid_pruned

@@ -1,0 +1,10 @@
+{
+  "clean_num_nodes": 94299,
+  "clean_num_edges": 221532,
+  "clean_num_features": 165,
+  "fake_node_attack_status": "passed",
+  "fake_edge_attack_status": "passed",
+  "feature_perturbation_status": "passed",
+  "combined_attack_status": "passed",
+  "readiness_status": "ready"
+}

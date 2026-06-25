@@ -1,0 +1,17 @@
+\begin{tabular}{lrrrrl}
+\toprule
+model_or_variant & clean_f1 & clean_auc & attacked_f1 & defended_f1 & notes \\
+\midrule
+GCN & 0.0269 & 0.4642 & NaN & NaN & existing clean test metrics only \\
+GraphSAGE & 0.0508 & 0.5211 & NaN & NaN & existing clean test metrics only \\
+SHIELD-GNN Clean Existing & 0.1225 & 0.6859 & NaN & NaN & existing clean test metrics only \\
+SHIELD-GNN Attack+Defense Existing & 0.1007 & 0.6993 & NaN & NaN & existing clean test metrics only \\
+ellipticpp100_shield_full & 0.1225 & 0.6883 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_clean_only & 0.1225 & 0.6872 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_no_defense_branch & 0.1225 & 0.6874 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_no_attack_branch & 0.1225 & 0.6875 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_no_temporal_consistency & 0.1225 & 0.6888 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_no_pruning_regularization & 0.1225 & 0.6883 & 0.1268 & 0.1007 & defense did not improve F1 \\
+ellipticpp100_no_node_type_features & 0.1225 & 0.6879 & 0.1268 & 0.1007 & defense did not improve F1 \\
+\bottomrule
+\end{tabular}

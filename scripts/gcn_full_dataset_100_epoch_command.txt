@@ -1,0 +1,31 @@
+Manual CMD commands only. Codex has not run these epoch commands.
+
+Project activation:
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+Verify full graph summary:
+python scripts\12_report_full_dataset_splits.py
+
+GCN full-dataset dry-run only, no training:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --dry-run --device cuda --save-name baseline_gcn_full_100ep
+
+5 epoch CUDA sanity training command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 5 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_gcn_full_5ep_sanity
+
+100 epoch CUDA final GCN training command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_gcn_full_100ep
+
+CPU fallback dry-run:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --dry-run --device cpu --save-name baseline_gcn_full_100ep_cpu
+
+CPU fallback 5 epoch sanity command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 5 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_gcn_full_5ep_sanity_cpu
+
+CPU fallback 100 epoch final GCN command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_gcn_full_100ep_cpu
+
+Output names for the final CUDA run:
+results\model_checkpoints\baseline_gcn_full_100ep_best.pt
+results\tables\baseline_gcn_full_100ep_training_log.csv
+results\tables\baseline_gcn_full_100ep_metrics.json

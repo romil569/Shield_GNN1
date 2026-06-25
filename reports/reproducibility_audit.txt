@@ -1,0 +1,12 @@
+﻿Reproducibility Audit
+=====================
+
+required scripts found: TRUE
+training scripts found: TRUE
+evaluation scripts found: TRUE
+dataset instructions created: TRUE
+requirements created: TRUE
+checkpoints available or downloadable: TRUE
+expected metrics included: TRUE
+
+Final reproducibility target: Elliptic++ Train200K. Included commands cover environment setup, dataset preparation, baseline training, SHIELD-GNN training, evaluation, report generation, and checkpoint regeneration.

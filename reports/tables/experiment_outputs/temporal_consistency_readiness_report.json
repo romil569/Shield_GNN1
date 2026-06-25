@@ -1,0 +1,13 @@
+{
+  "num_nodes": 94299,
+  "num_edges": 221532,
+  "num_timesteps": 21,
+  "prediction_consistency_mse_status": "passed: 0.000186",
+  "prediction_consistency_kl_status": "passed: 0.000457",
+  "temporal_smoothness_status": "passed: 0.138342",
+  "edge_smoothness_status": "passed: 0.135883",
+  "combined_regularizer_status": "passed: 0.068975",
+  "temporal_consistency_class_status": "passed: 0.068975",
+  "defense_edge_weight_found": true,
+  "readiness_status": "ready"
+}

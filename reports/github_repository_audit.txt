@@ -1,0 +1,18 @@
+﻿GitHub Repository Audit
+=======================
+
+original project path: C:\Users\HP\Desktop\SHIELD-GNN
+new repo path: C:\Users\HP\Desktop\Shield_GNN1
+files copied count: 200
+files excluded count: 459
+large files excluded:
+- raw Elliptic++ CSV files under dataset_new/
+- processed graph arrays under data/processed/
+- old full-Elliptic checkpoints/results not tied to final Elliptic++ story
+- virtual environment shield_env/
+- caches and temporary console logs
+checkpoint handling status: final four Elliptic++ Train200K checkpoints copied; all are below 100 MB
+architecture found status: TRUE, copied to architecture/shield_gnn_architecture.png
+flowchart found status: TRUE, copied to architecture/shield_gnn_methodology_flowchart.png
+README created status: TRUE
+gitignore created status: TRUE

@@ -1,0 +1,36 @@
+{
+  "python_version": "3.12.13",
+  "torch_installed": true,
+  "torch_version": "2.11.0+cu128",
+  "torch_cuda_version": "12.8",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+  "cuda_architecture": "sm_120",
+  "cuda_architecture_supported_by_torch": true,
+  "torch_geometric_installed": true,
+  "torch_geometric_version": "2.8.0",
+  "graph_artifacts_found": true,
+  "X_shape": [
+    94299,
+    165
+  ],
+  "y_shape": [
+    94299
+  ],
+  "edge_index_shape": [
+    2,
+    221532
+  ],
+  "train_mask_count": 14896,
+  "val_mask_count": 1959,
+  "test_mask_count": 2675,
+  "gcn_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.851888",
+  "gat_dry_run_status": "passed: logits_shape=(2048, 2), loss=1.371217",
+  "graphsage_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.804764",
+  "sm_120_supported_status": "supported",
+  "gcn_cuda_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.965567",
+  "gat_cuda_dry_run_status": "passed: logits_shape=(2048, 2), loss=1.169314",
+  "graphsage_cuda_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.843129",
+  "final_recommendation": "gpu_ready",
+  "readiness_status": "ready"
+}

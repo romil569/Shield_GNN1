@@ -1,0 +1,16 @@
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+python scripts\06_verify_attack_simulation.py
+
+python src\run_attack_simulation.py --attack fake_node --dry-run
+python src\run_attack_simulation.py --attack fake_edge --dry-run
+python src\run_attack_simulation.py --attack feature --dry-run
+python src\run_attack_simulation.py --attack combined --dry-run
+
+python src\run_attack_simulation.py --attack fake_node --fake-node-rate 0.02 --save-artifacts
+python src\run_attack_simulation.py --attack fake_edge --fake-edge-rate 0.03 --save-artifacts
+python src\run_attack_simulation.py --attack feature --feature-perturb-rate 0.05 --save-artifacts
+python src\run_attack_simulation.py --attack combined --fake-node-rate 0.02 --fake-edge-rate 0.03 --feature-perturb-rate 0.05 --save-artifacts
+
+python src\evaluate_attack_robustness.py --checkpoint results\model_checkpoints\baseline_gcn_best.pt --attack-dir data\processed\attack_artifacts\<attack_run_folder>

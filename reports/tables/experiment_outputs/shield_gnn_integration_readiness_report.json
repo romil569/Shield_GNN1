@@ -1,0 +1,18 @@
+{
+  "clean_graph_found": true,
+  "attack_artifact_found": true,
+  "defense_artifact_found": true,
+  "num_nodes": 94299,
+  "num_features": 165,
+  "num_edges": 221532,
+  "num_timesteps": 21,
+  "shield_model_creation_status": "passed",
+  "clean_forward_status": "passed",
+  "defended_forward_status": "passed",
+  "shield_loss_status": "passed: 1.340666",
+  "evaluation_import_status": "passed",
+  "device_used": "cuda",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+  "readiness_status": "ready"
+}

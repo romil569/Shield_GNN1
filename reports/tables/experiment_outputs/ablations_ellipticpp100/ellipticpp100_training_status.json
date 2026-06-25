@@ -1,0 +1,94 @@
+[
+  {
+    "ablation_name": "ellipticpp100_shield_full",
+    "removed_component": "none",
+    "use_attack": true,
+    "use_defense": true,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "gamma": 0.01,
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_clean_only",
+    "removed_component": "attack_and_defense",
+    "use_attack": false,
+    "use_defense": false,
+    "alpha": 0.0,
+    "beta": 0.1,
+    "gamma": 0.0,
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_no_defense_branch",
+    "removed_component": "defense_branch",
+    "use_attack": true,
+    "use_defense": false,
+    "alpha": 0.0,
+    "beta": 0.1,
+    "gamma": 0.0,
+    "flags": [
+      "--disable-defense-branch"
+    ],
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_no_attack_branch",
+    "removed_component": "attack_branch",
+    "use_attack": false,
+    "use_defense": true,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "gamma": 0.01,
+    "flags": [
+      "--disable-attack-branch"
+    ],
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_no_temporal_consistency",
+    "removed_component": "temporal_consistency",
+    "use_attack": true,
+    "use_defense": true,
+    "alpha": 1.0,
+    "beta": 0.0,
+    "gamma": 0.01,
+    "flags": [
+      "--disable-temporal-consistency"
+    ],
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_no_pruning_regularization",
+    "removed_component": "pruning_regularization",
+    "use_attack": true,
+    "use_defense": true,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "gamma": 0.0,
+    "flags": [
+      "--disable-pruning-regularization"
+    ],
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  },
+  {
+    "ablation_name": "ellipticpp100_no_node_type_features",
+    "removed_component": "node_type_features",
+    "use_attack": true,
+    "use_defense": true,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "gamma": 0.01,
+    "flags": [
+      "--disable-node-type-features"
+    ],
+    "status": "existing",
+    "notes": "checkpoint already exists"
+  }
+]

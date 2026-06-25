@@ -1,0 +1,17 @@
+{
+  "dataset_name": "EllipticPlusPlus-Train200K",
+  "num_nodes": 1026711,
+  "num_transaction_nodes": 203769,
+  "num_wallet_nodes": 822942,
+  "num_directed_edges": 1548596,
+  "num_undirected_edges": 3005230,
+  "num_features": 249,
+  "num_timesteps": 49,
+  "labeled_nodes": 311918,
+  "unknown_nodes": 714793,
+  "train_labeled_nodes": 207014,
+  "val_labeled_nodes": 8642,
+  "test_labeled_nodes": 6687,
+  "split_protocol": "chronological_transaction_split_with_strict_wallet_train",
+  "leakage_risk": "low"
+}

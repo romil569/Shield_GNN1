@@ -1,0 +1,10 @@
+Claim type,Claim
+Safe,SHIELD-GNN outperforms GCN and GraphSAGE on Elliptic++ Train200K.
+Safe,SHIELD-GNN Clean achieves the highest F1 among the compared baseline models.
+Safe,SHIELD-GNN Attack+Defense achieves the highest ROC-AUC in the baseline comparison.
+Safe,Ablation shows stable architecture-level performance under component removal.
+Safe,Component-level contribution requires further tuning and analysis.
+Unsafe,SHIELD-GNN beats every model in every dataset.
+Unsafe,Every layer is individually proven important.
+Unsafe,Defense branch always improves F1.
+Unsafe,Pruning always recovers attacked performance.

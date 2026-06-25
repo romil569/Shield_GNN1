@@ -1,0 +1,16 @@
+{
+  "python_version": "3.12.13",
+  "temporal_artifacts_found": true,
+  "num_nodes": 94299,
+  "num_features": 165,
+  "num_edges": 221532,
+  "num_timesteps": 21,
+  "timestep_min": 1,
+  "timestep_max": 21,
+  "temporal_gcn_gru_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.630040",
+  "time_aware_gcn_dry_run_status": "passed: logits_shape=(2048, 2), loss=0.962744",
+  "device_used": "cuda",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+  "readiness_status": "ready"
+}

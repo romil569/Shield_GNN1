@@ -1,0 +1,9 @@
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+python scripts\08_verify_temporal_consistency.py
+
+python src\run_temporal_consistency_demo.py --device cpu --dry-run
+python src\run_temporal_consistency_demo.py --device cuda --dry-run
+
+REM These commands only compute consistency losses. They do not train, run epochs, or call optimizer steps.

@@ -1,0 +1,37 @@
+Run these commands manually from Windows CMD.
+Do not run epoch training commands until the import check and dry-run pass.
+
+Project directory and environment activation:
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+Confirm CMD is using shield_env Python:
+where python
+python --version
+python -m pip --version
+
+Repair basic project dependencies inside shield_env:
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install pandas numpy scikit-learn matplotlib seaborn tqdm
+
+Verify PyTorch and PyTorch Geometric:
+python -c "import torch; print('torch', torch.__version__); print('cuda', torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no cuda')"
+python -c "import torch_geometric; print('pyg', torch_geometric.__version__)"
+
+Core import check:
+python -c "import pandas as pd; import numpy as np; import sklearn; import matplotlib; import torch; import torch_geometric; print('All core imports OK')"
+
+GCN full-dataset dry-run only, no training:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --dry-run --device cuda
+
+5 epoch CUDA sanity training command, run manually only after dry-run passes:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 5 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_gcn_full_5ep_sanity
+
+100 epoch CUDA final GCN training command, run manually only after sanity training is acceptable:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_gcn_full_100ep
+
+CPU fallback sanity command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 5 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_gcn_full_5ep_sanity_cpu
+
+CPU fallback final command:
+python src\train_baseline.py --model gcn --artifact-dir data\processed\full\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_gcn_full_100ep_cpu

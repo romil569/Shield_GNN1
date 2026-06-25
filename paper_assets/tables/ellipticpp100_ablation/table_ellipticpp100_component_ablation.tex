@@ -1,0 +1,13 @@
+\begin{tabular}{llrrrrrr}
+\toprule
+ablation_name & removed_component & clean_f1 & attacked_f1 & defended_f1 & clean_auc & attacked_auc & defended_auc \\
+\midrule
+ellipticpp100_shield_full & none & 0.1225 & 0.1268 & 0.1007 & 0.6883 & 0.7412 & 0.7024 \\
+ellipticpp100_clean_only & attack_and_defense & 0.1225 & 0.1268 & 0.1007 & 0.6872 & 0.7403 & 0.7010 \\
+ellipticpp100_no_defense_branch & defense_branch & 0.1225 & 0.1268 & 0.1007 & 0.6874 & 0.7405 & 0.7014 \\
+ellipticpp100_no_attack_branch & attack_branch & 0.1225 & 0.1268 & 0.1007 & 0.6875 & 0.7406 & 0.7014 \\
+ellipticpp100_no_temporal_consistency & temporal_consistency & 0.1225 & 0.1268 & 0.1007 & 0.6888 & 0.7416 & 0.7026 \\
+ellipticpp100_no_pruning_regularization & pruning_regularization & 0.1225 & 0.1268 & 0.1007 & 0.6883 & 0.7412 & 0.7024 \\
+ellipticpp100_no_node_type_features & node_type_features & 0.1225 & 0.1268 & 0.1007 & 0.6879 & 0.7409 & 0.7022 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,28 @@
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+python --version
+python -m pip --version
+where python
+where pip
+nvidia-smi
+
+python -m pip install --upgrade pip setuptools wheel
+python -m pip uninstall -y torch torchvision torchaudio
+python -m pip install --upgrade torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+python -m pip install torch torchvision torchaudio
+python -m pip install torch-geometric
+
+python scripts\03_verify_gnn_environment.py
+python src\train_baseline.py --model gcn --dry-run
+python src\train_baseline.py --model gat --dry-run
+python src\train_baseline.py --model graphsage --dry-run
+python scripts\04_pretraining_readiness_check.py
+
+python src\train_baseline.py --model gcn --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda
+python src\train_baseline.py --model gat --epochs 100 --hidden-channels 32 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda
+python src\train_baseline.py --model graphsage --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda
+
+python src\train_baseline.py --model gcn --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu
+python src\train_baseline.py --model gat --epochs 100 --hidden-channels 32 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu
+python src\train_baseline.py --model graphsage --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cpu

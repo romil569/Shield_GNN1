@@ -1,0 +1,13 @@
+| model_or_variant | source | clean_f1 | clean_auc | attacked_f1 | defended_f1 | notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| GCN | results\tables\baseline_gcn_ellipticpp_train200k_100ep_metrics.json | 0.026865671641791048 | 0.4642065395599987 |  |  | existing clean test metrics only |
+| GraphSAGE | results\tables\baseline_graphsage_ellipticpp_train200k_100ep_metrics.json | 0.050763923114834894 | 0.5211076835926365 |  |  | existing clean test metrics only |
+| SHIELD-GNN Clean Existing | results\tables\shield_clean_ellipticpp_train200k_100ep_memsafe_metrics.json | 0.12249570692615915 | 0.6858644518320681 |  |  | existing clean test metrics only |
+| SHIELD-GNN Attack+Defense Existing | results\tables\shield_attack_defense_ellipticpp_train200k_100ep_memsafe_metrics.json | 0.10069101678183615 | 0.6992756517681578 |  |  | existing clean test metrics only |
+| ellipticpp100_shield_full | ellipticpp100 ablation | 0.12249570692615915 | 0.688324639459957 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_clean_only | ellipticpp100 ablation | 0.12249570692615915 | 0.6871767032033277 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_no_defense_branch | ellipticpp100 ablation | 0.12249570692615915 | 0.6874354314224967 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_no_attack_branch | ellipticpp100 ablation | 0.12249570692615915 | 0.6874917161578951 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_no_temporal_consistency | ellipticpp100 ablation | 0.12249570692615915 | 0.6888075988024062 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_no_pruning_regularization | ellipticpp100 ablation | 0.12249570692615915 | 0.688324639459957 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |
+| ellipticpp100_no_node_type_features | ellipticpp100 ablation | 0.12249570692615915 | 0.6878761772133972 | 0.1267846944603084 | 0.10069101678183615 | defense did not improve F1 |

@@ -1,0 +1,31 @@
+cd C:\Users\HP\Desktop\SHIELD-GNN
+shield_env\Scripts\activate
+
+REM Audit and build Elliptic++ Train200K artifacts.
+python src\audit_ellipticpp_dataset.py
+python src\build_ellipticpp_train200k_graph.py
+python scripts\verify_ellipticpp_train200k_graph.py
+
+REM Safe CUDA dry-runs. These do not train.
+python src\train_baseline.py --model gcn --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --dry-run --device cuda
+python src\train_baseline.py --model graphsage --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --dry-run --device cuda
+python src\train_shield_gnn.py --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --dry-run --hidden-channels 32 --num-layers 1 --device cuda --save-name shield_ellipticpp_train200k_dryrun
+
+REM CUDA memory config for training commands.
+set PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+REM Completed Elliptic++ Train200K training commands with unique save names.
+python src\train_baseline.py --model gcn --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_gcn_ellipticpp_train200k_100ep
+python src\train_baseline.py --model graphsage --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 64 --num-layers 2 --dropout 0.5 --lr 0.001 --device cuda --save-name baseline_graphsage_ellipticpp_train200k_100ep
+python src\train_shield_gnn.py --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cuda --save-name shield_clean_ellipticpp_train200k_100ep_memsafe
+
+REM Optional targeted evasion attack and hybrid pruning defense on Elliptic++ Train200K.
+python src\run_attack_simulation.py --attack targeted_evasion --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --edge-type undirected --target-split test --target-class illicit --fake-node-ratio 0.03 --fake-edge-ratio 0.05 --feature-perturbation-ratio 0.05 --output-root data\processed\ellipticpp_train200k\attack_artifacts --output-name targeted_evasion_test_illicit_full --save-artifacts
+python src\run_edge_pruning_defense.py --input-type attack --attack-dir data\processed\ellipticpp_train200k\attack_artifacts\targeted_evasion_test_illicit_full --mode hybrid --threshold-mode percentile --score-percentile 95 --prune-ratio 0.05 --min-prune-edges 5000 --preserve-original-test-mask --output-root data\processed\ellipticpp_train200k\defense_artifacts --output-name targeted_evasion_hybrid_pruned_p95_full --save-artifacts
+python src\train_shield_gnn.py --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --dry-run --hidden-channels 32 --num-layers 1 --device cuda --use-attack --attack-dir data\processed\ellipticpp_train200k\attack_artifacts\targeted_evasion_test_illicit_full --use-defense --defense-dir data\processed\ellipticpp_train200k\defense_artifacts\targeted_evasion_hybrid_pruned_p95_full --save-name shield_attack_defense_ellipticpp_train200k_dryrun
+python src\train_shield_gnn.py --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cuda --use-attack --attack-dir data\processed\ellipticpp_train200k\attack_artifacts\targeted_evasion_test_illicit_full --use-defense --defense-dir data\processed\ellipticpp_train200k\defense_artifacts\targeted_evasion_hybrid_pruned_p95_full --save-name shield_attack_defense_ellipticpp_train200k_100ep_memsafe
+
+REM CPU fallback examples if CUDA is unavailable.
+REM python src\train_baseline.py --model gcn --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_gcn_ellipticpp_train200k_100ep_memsafe_cpu
+REM python src\train_baseline.py --model graphsage --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 32 --num-layers 1 --dropout 0.5 --lr 0.001 --device cpu --save-name baseline_graphsage_ellipticpp_train200k_100ep_memsafe_cpu
+REM python src\train_shield_gnn.py --artifact-dir data\processed\ellipticpp_train200k\graph_artifacts --epochs 100 --hidden-channels 16 --num-layers 1 --dropout 0.5 --lr 0.001 --device cpu --save-name shield_clean_ellipticpp_train200k_100ep_ultramemsafe_cpu

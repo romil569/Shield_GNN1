@@ -1,0 +1,17 @@
+{
+  "model": "gcn",
+  "best_epoch": 24,
+  "best_val_f1": 0.26641473783656117,
+  "test_metrics": {
+    "loss": 6209.28271484375,
+    "accuracy": 0.8049947619438171,
+    "precision": 0.015371477369769428,
+    "recall": 0.10650887573964497,
+    "f1": 0.026865671641791048,
+    "roc_auc": 0.4642065395599987,
+    "num_nodes": 6687,
+    "illicit_count": 169,
+    "licit_count": 6518
+  },
+  "checkpoint_path": "C:\\Users\\HP\\Desktop\\SHIELD-GNN\\results\\model_checkpoints\\baseline_gcn_ellipticpp_train200k_100ep_best.pt"
+}

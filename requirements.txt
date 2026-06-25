@@ -1,0 +1,16 @@
+﻿# Core scientific Python stack
+numpy
+pandas
+scikit-learn
+matplotlib
+networkx
+tqdm
+
+# Deep learning and graph learning
+# For CUDA builds, install the PyTorch wheel matching your GPU/driver first.
+torch
+torch-geometric
+
+# Reporting utilities
+python-docx
+Pillow

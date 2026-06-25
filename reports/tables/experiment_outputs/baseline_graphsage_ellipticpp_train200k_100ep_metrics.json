@@ -1,0 +1,17 @@
+{
+  "model": "graphsage",
+  "best_epoch": 94,
+  "best_val_f1": 0.2678642714570858,
+  "test_metrics": {
+    "loss": 341.3390808105469,
+    "accuracy": 0.4239569306373596,
+    "precision": 0.026484957572640782,
+    "recall": 0.6094674556213018,
+    "f1": 0.050763923114834894,
+    "roc_auc": 0.5211076835926365,
+    "num_nodes": 6687,
+    "illicit_count": 169,
+    "licit_count": 6518
+  },
+  "checkpoint_path": "C:\\Users\\HP\\Desktop\\SHIELD-GNN\\results\\model_checkpoints\\baseline_graphsage_ellipticpp_train200k_100ep_best.pt"
+}

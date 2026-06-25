@@ -1,0 +1,12 @@
+{
+  "clean_num_nodes": 94299,
+  "clean_num_edges": 221532,
+  "mode_tested": "hybrid",
+  "clean_pruning_status": "passed",
+  "attack_artifact_found": true,
+  "attack_pruning_status": "passed",
+  "defended_num_edges": 220954,
+  "pruned_edges": 578,
+  "downweighted_edges": 604,
+  "readiness_status": "ready"
+}
